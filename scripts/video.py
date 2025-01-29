@@ -1,16 +1,23 @@
-import cv
+# import cv
 import cv2
 import time
 import numpy as np
 import argparse
+
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 import motive as m
-import Tkinter, tkFileDialog
+import tkinter
+from tkinter import filedialog
 
 
 def gui_load_profile_file():
-    root = Tkinter.Tk()
+    root = tkinter.Tk()
     root.withdraw()
-    profile_file=(tkFileDialog.askopenfilename(title='Choose a profile file to load: ', filetypes=[('motive profilefiles', '*.motive')])).encode('ascii')
+    profile_file=(filedialog.askopenfilename(title='Choose a profile file to load: ', filetypes=[('motive profilefiles', '*.motive')])).encode('ascii')
     root.quit()
     return profile_file
 
@@ -24,7 +31,7 @@ def get_cam(camera_name="91"):
             return cam
 
 def gui_get_cam():        #TODO: create a window where one could look at all cameras at once. Then choose one, open up the window in parallel again if necessary
-    root = Tkinter.Tk()
+    root = tkinter.Tk()
 
     def choose_camera(camera_name):
         root.withdraw()
@@ -32,43 +39,43 @@ def gui_get_cam():        #TODO: create a window where one could look at all cam
         cam=get_cam(camera_name)
         root.quit()
 
-    frame=Tkinter.Frame(root)
+    frame=tkinter.Frame(root)
     frame.pack()
 
     #TODO: for loop that creates all the buttons
-    camera_button_11000=Tkinter.Button(frame, text="Camera Prime 13 #11000", command=lambda: choose_camera('11000'))
-    camera_button_11000.pack(side=Tkinter.LEFT)
+    camera_button_11000=tkinter.Button(frame, text="Camera Prime 13 #11000", command=lambda: choose_camera('11000'))
+    camera_button_11000.pack(side=tkinter.LEFT)
 
-    camera_button_10187 = Tkinter.Button(frame, text="Camera Prime 17W #10187", command=lambda: choose_camera('10187'))
-    camera_button_10187.pack(side=Tkinter.LEFT)
+    camera_button_10187 = tkinter.Button(frame, text="Camera Prime 17W #10187", command=lambda: choose_camera('10187'))
+    camera_button_10187.pack(side=tkinter.LEFT)
 
-    camera_button_10189 = Tkinter.Button(frame, text="Camera Prime 17W #10189", command=lambda: choose_camera('10189'))
-    camera_button_10189.pack(side=Tkinter.LEFT)
+    camera_button_10189 = tkinter.Button(frame, text="Camera Prime 17W #10189", command=lambda: choose_camera('10189'))
+    camera_button_10189.pack(side=tkinter.LEFT)
 
-    camera_button_10910 = Tkinter.Button(frame, text="Camera Prime 13W #10910", command=lambda: choose_camera('10910'))
-    camera_button_10910.pack(side=Tkinter.LEFT)
+    camera_button_10910 = tkinter.Button(frame, text="Camera Prime 13W #10910", command=lambda: choose_camera('10910'))
+    camera_button_10910.pack(side=tkinter.LEFT)
 
-    camera_button_9997 = Tkinter.Button(frame, text="Camera Prime 17W #9997", command=lambda: choose_camera('9997'))
-    camera_button_9997.pack(side=Tkinter.LEFT)
+    camera_button_9997 = tkinter.Button(frame, text="Camera Prime 17W #9997", command=lambda: choose_camera('9997'))
+    camera_button_9997.pack(side=tkinter.LEFT)
 
-    camera_button_10188 = Tkinter.Button(frame, text="Camera Prime 17W #10188", command=lambda: choose_camera('10188'))
-    camera_button_10188.pack(side=Tkinter.LEFT)
+    camera_button_10188 = tkinter.Button(frame, text="Camera Prime 17W #10188", command=lambda: choose_camera('10188'))
+    camera_button_10188.pack(side=tkinter.LEFT)
 
-    camera_button_10190 = Tkinter.Button(frame, text="Camera Prime 13W #10190", command=lambda: choose_camera('10190'))
-    camera_button_10190.pack(side=Tkinter.LEFT)
+    camera_button_10190 = tkinter.Button(frame, text="Camera Prime 13W #10190", command=lambda: choose_camera('10190'))
+    camera_button_10190.pack(side=tkinter.LEFT)
 
-    camera_button_11079 = Tkinter.Button(frame, text="Camera Prime 13 #11079", command=lambda: choose_camera('11079'))
-    camera_button_11079.pack(side=Tkinter.LEFT)
+    camera_button_11079 = tkinter.Button(frame, text="Camera Prime 13 #11079", command=lambda: choose_camera('11079'))
+    camera_button_11079.pack(side=tkinter.LEFT)
 
-    camera_button_9956 = Tkinter.Button(frame, text="Camera Prime 17W #9956", command=lambda: choose_camera('9956'))
-    camera_button_9956.pack(side=Tkinter.LEFT)
+    camera_button_9956 = tkinter.Button(frame, text="Camera Prime 17W #9956", command=lambda: choose_camera('9956'))
+    camera_button_9956.pack(side=tkinter.LEFT)
 
-    camera_button_11202 = Tkinter.Button(frame, text="Camera Prime 13W #11202", command=lambda: choose_camera('11202'))
-    camera_button_11202.pack(side=Tkinter.LEFT)
+    camera_button_11202 = tkinter.Button(frame, text="Camera Prime 13W #11202", command=lambda: choose_camera('11202'))
+    camera_button_11202.pack(side=tkinter.LEFT)
 
     #TODO: nicer button layout
 
-    Tkinter.mainloop()
+    tkinter.mainloop()
 
     return cam
 

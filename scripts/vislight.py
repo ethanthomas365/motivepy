@@ -1,12 +1,17 @@
+import tkinter
+from tkinter import filedialog
+from os import path
+import motive as m
+
 if __name__ == '__main__':
 
-    import Tkinter, tkFileDialog
-    from os import path
-    import motive as m
+    # import Tkinter, tkFileDialog
+    # from os import path
+    # import motive as m
 
-    root = Tkinter.Tk()
+    root = tkinter.Tk()
     root.withdraw()
-    profile_file_u=tkFileDialog.askopenfilename(title='Choose a profile file to load: ', filetypes=[('motive profilefiles', '*.motive')])
+    profile_file_u=filedialog.askopenfilename(title='Choose a profile file to load: ', filetypes=[('motive profilefiles', '*.motive')])
     profile_file = profile_file_u.encode("ascii")
     m.load_profile(profile_file)
 

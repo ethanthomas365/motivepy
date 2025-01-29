@@ -4,7 +4,8 @@ __author__ = 'nico'
 #import pdb
 #pdb.set_trace()
 
-import Tkinter, tkFileDialog
+import tkinter
+from tkinter import filedialog
 import argparse
 import motive
 from motive import utils
@@ -39,9 +40,9 @@ if __name__ == '__main__':
         profile_file=args.profile_filename
 
     else:
-        root = Tkinter.Tk()
+        root = tkinter.Tk()
         root.withdraw()
-        profile_file_u=tkFileDialog.askopenfilename(title='Choose a profile file to load: ', filetypes=[('motive profilefiles', '*.motive')])
+        profile_file_u=filedialog.askopenfilename(title='Choose a profile file to load: ', filetypes=[('motive profilefiles', '*.motive')])
         profile_file = profile_file_u.encode("ascii")
 
     # Load Motive Project

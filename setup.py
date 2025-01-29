@@ -52,7 +52,11 @@ rigidbody = Extension(
 # )
 
 
-transformations  = Extension('_transformations', sources=['third_party/transformations.c'], include_dirs=[numpy.get_include()])
+transformations  = Extension(
+    '_transformations', 
+    sources=['third_party/transformations.c'], 
+    include_dirs=[numpy.get_include()]
+)
 
 setup(
     name="motive",
